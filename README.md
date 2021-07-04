@@ -3,8 +3,6 @@ Javascript method to wrap web request methods or other functions that can return
 
 ## DESCRIPTION:
 This simple javascript method can be called and passed as arguments a method and its arguments. It is intended specifically to be used with methods that perform web requests. `TryUntil.retry()` will continue to call the method it has been passed if an error response is returned, until a non-error response is returned, at which point it will exit the loop and return that response object.
-
-The method will suppress errors by default but you can raise them for debugging by uncommenting either line 35 or 36.
 ___
 ## USAGE:
 ```js
