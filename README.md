@@ -10,7 +10,7 @@ await TryUntil.retry(funct,params,context) // Suppress error and retry
 await TryUntil.retryAndConsole(funct,params,context) // Send error to console.error() and retry  
 await TryUntil.retryAndThrow(funct,params,context) // Throw new Error() and retry  
 ```
-`funct`: The web request method to be used.
+`funct`: The web request method to be used. It needs to be passed as a function object, without the ().
 
 `params`: A single string or an array of parameters needed when calling the method.
 
