@@ -31,7 +31,9 @@ class TryUntil{
         return result
       }catch(error){
         err=error
-        throw new Error(error)
+        // Uncomment either of these lines if you wish to raise the error for debugging.
+        // throw new Error(error)
+        // console.error(error)
       }
     } while (err!==0)
   }
