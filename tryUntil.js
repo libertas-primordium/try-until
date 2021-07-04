@@ -31,10 +31,64 @@ class TryUntil{
         return result
       }catch(error){
         err=error
-        // Uncomment either of these lines if you wish to raise the error for debugging.
-        // throw new Error(error)
-        // console.error(error)
+      }
+    } while (err!==0)
+  }
+  
+  async retryAndConsole(funct,params,context){
+    const f = funct
+    const p = []
+    let c = context
+    if (!c){
+      c = globalThis
+    }
+    if (typeof params !== 'string'){
+      for (let i in params){
+        p.push(params[i])
+      }
+    }else{
+      p.push(params)
+    }
+    let result
+    let err
+    do {
+      try{
+        err=0
+        result = await f.apply(c,p)
+        return result
+      }catch(error){
+        err=error
+        console.error(error)
+      }
+    } while (err!==0)
+  }
+  
+  async retryAndThrow(funct,params,context){
+    const f = funct
+    const p = []
+    let c = context
+    if (!c){
+      c = globalThis
+    }
+    if (typeof params !== 'string'){
+      for (let i in params){
+        p.push(params[i])
+      }
+    }else{
+      p.push(params)
+    }
+    let result
+    let err
+    do {
+      try{
+        err=0
+        result = await f.apply(c,p)
+        return result
+      }catch(error){
+        err=error
+        throw new Error(error)
       }
     } while (err!==0)
   }
 }
+
