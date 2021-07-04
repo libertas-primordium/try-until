@@ -8,7 +8,9 @@ The method will suppress errors by default but you can raise them for debugging 
 ___
 ## USAGE:
 ```js
-await TryUntil.retry(funct,params,context)
+await TryUntil.retry(funct,params,context) // Suppress error and retry  
+await TryUntil.retryAndConsole(funct,params,context) // Send error to console.error() and retry  
+await TryUntil.retryAndThrow(funct,params,context) // Throw new Error() and retry  
 ```
 `funct`: The web request method to be used.
 
